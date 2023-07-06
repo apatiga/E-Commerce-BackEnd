@@ -8,27 +8,25 @@ ProductTag.init(
   {
     // define columns
     id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      type: DataTypes.INTEGER, // Set the data type to INTEGER
+      allowNull: false, // Disallow NULL values
+      primaryKey: true, // Set as the primary key
+      autoIncrement: true, // Automatically increment the value for each new record
     },
-    product_id:{
-      type: DataTypes.INTEGER,
+    tag_id: {
+      type: DataTypes.INTEGER, // Set the data type to INTEGER
       references: {
-        model: 'product',
-        key: 'id',
-        unique: false
-      }
+        model: "tag", // Reference the 'tag' table
+        key: "id", // Reference the 'id' column in the 'tag' table
+      },
     },
-    tag_id:{
-      type: DataTypes.INTEGER,
+    product_id: {
+      type: DataTypes.INTEGER, // Set the data type to INTEGER
       references: {
-        model: 'tag',
-        key: 'id',
-        unique: false
-      }
-    }
+        model: "product", // Reference the 'product' table
+        key: "id", // Reference the 'id' column in the 'product' table
+      },
+    },
   },
   {
     sequelize,
